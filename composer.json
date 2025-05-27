@@ -1,0 +1,20 @@
+{
+    "name": "nerea.enrique/etl",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "NereaEnrique\\Etl\\": "src/",
+            "Tests\\NereaEnrique\\Etl\\": "tests/"
+        }
+    },
+    "require": {
+        "flow-php/etl": "~0.17.1",
+        "flow-php/etl-adapter-csv": "~0.17.1",
+        "flow-php/etl-adapter-json": "~0.17.1"
+    },
+    "config": {
+        "bin-dir": "tools",
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
