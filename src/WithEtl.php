@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace NereaEnrique\Etl;
 
+use function Flow\ETL\DSL\col;
+use function Flow\ETL\DSL\data_frame;
+
 use Flow\ETL\Extractor;
 use Flow\ETL\Loader;
-use function Flow\ETL\DSL\{col, data_frame, from_array, to_array, to_stream};
 
-final class EtlUsage
+final class WithEtl
 {
-    public function __invoke(Extractor $extractor, Loader $loader)
+    public function __invoke(Extractor $extractor, Loader $loader): void
     {
-        $result = [];
         data_frame()
             ->read($extractor)
             ->withEntry('fullname', col('name')
@@ -24,8 +25,5 @@ final class EtlUsage
             ->write($loader)
             ->run()
         ;
-
-        return $result;
     }
-
 }
